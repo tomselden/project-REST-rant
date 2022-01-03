@@ -1,6 +1,13 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const router = require('express').Router()
+const places = require('../models/places.js')
+
+router.get('/', (req, res) => {
+    res.render('places/index', { places })
+})
+
 
 app.set("view engine", "jsx");
 app.engine("jsx", require("express-react-views").createEngine());
